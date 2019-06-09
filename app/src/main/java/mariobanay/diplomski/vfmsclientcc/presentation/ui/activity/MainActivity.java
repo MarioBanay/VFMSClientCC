@@ -1,29 +1,29 @@
-package mariobanay.diplomski.vfmsclientcc.presentation.ui.activities;
+package mariobanay.diplomski.vfmsclientcc.presentation.ui.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import butterknife.BindView;
+import androidx.appcompat.app.AppCompatActivity;
 import mariobanay.diplomski.vfmsclientcc.R;
 import mariobanay.diplomski.vfmsclientcc.domain.executor.impl.ThreadExecutor;
+import mariobanay.diplomski.vfmsclientcc.presentation.navigation.Navigator;
 import mariobanay.diplomski.vfmsclientcc.presentation.presenters.MainPresenter;
 import mariobanay.diplomski.vfmsclientcc.presentation.presenters.MainPresenter.View;
-import mariobanay.diplomski.vfmsclientcc.presentation.presenters.impl.MainPresenterImpl;
-import mariobanay.diplomski.vfmsclientcc.storage.WelcomeMessageRepository;
+import mariobanay.diplomski.vfmsclientcc.presentation.presenters.impl.GpsPresenterImpl;
+import mariobanay.diplomski.vfmsclientcc.security.GpsPermissionRepository;
 import mariobanay.diplomski.vfmsclientcc.threading.MainThreadImpl;
 
-import butterknife.ButterKnife;
 import static mariobanay.diplomski.vfmsclientcc.Constants.TAG;
 
 public class MainActivity extends AppCompatActivity implements View {
 
-    @BindView(R.id.welcome_textview)
+    //@BindView(R.id.welcome_textview)
     TextView mWelcomeTextView;
 
     private MainPresenter mPresenter;
+
+    Navigator navigator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +32,29 @@ public class MainActivity extends AppCompatActivity implements View {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+
+        navigator = Navigator.getInstance();
+
+        Log.d(TAG + Thread.currentThread().getId(), MainActivity.class.getSimpleName() + " ->" + " Returned from GpsPermissionActivity()");
 
         // create a presenter for this view
-        mPresenter = new MainPresenterImpl(
+        mPresenter = new GpsPresenterImpl(
                 ThreadExecutor.getInstance(),
                 MainThreadImpl.getInstance(),
                 this,
-                new WelcomeMessageRepository()
+                new GpsPermissionRepository()
         );
+        navigateToLocationPermissionFragment();
+        navigateToGpsPermissionFragment();
+    }
 
-        Log.d(TAG + Thread.currentThread().getId(), MainActivity.class.getSimpleName() + " ->" + " Exiting onCreate()");
+    private void navigateToGpsPermissionFragment() {
+        this.navigator.navigateToGpsPermission(this);
 
+    }
+
+    void navigateToLocationPermissionFragment() {
+        this.navigator.navigateToLocationPermission(this);
     }
 
     @Override
@@ -65,7 +76,8 @@ public class MainActivity extends AppCompatActivity implements View {
 
         Log.d(TAG + Thread.currentThread().getId(), MainActivity.class.getSimpleName() + " ->" + " Entered showProgress()");
 
-        mWelcomeTextView.setText("Retrieving...");
+        //mWelcomeTextView.setText("Retrieving...");
+        Toast.makeText(this, "Retrieving...", Toast.LENGTH_LONG).show();
 
         Log.d(TAG + Thread.currentThread().getId(), MainActivity.class.getSimpleName() + " ->" + " Exiting showProgress()");
 
@@ -87,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements View {
 
         Log.d(TAG + Thread.currentThread().getId(), MainActivity.class.getSimpleName() + " ->" + " Entered showError()");
 
-        mWelcomeTextView.setText(message);
+        //mWelcomeTextView.setText(message);
 
         Log.d(TAG + Thread.currentThread().getId(), MainActivity.class.getSimpleName() + " ->" + " Exiting showError()");
 
@@ -98,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements View {
 
         Log.d(TAG + Thread.currentThread().getId(), MainActivity.class.getSimpleName() + " ->" + " Entered displayWelcomeMessage()");
 
-        mWelcomeTextView.setText(msg);
+        //mWelcomeTextView.setText(msg);
 
         Log.d(TAG + Thread.currentThread().getId(), MainActivity.class.getSimpleName() + " ->" + " Exiting displayWelcomeMessage()");
 

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">VFMSClientCC</string>
+    <string name="welcome_message">Welcome to Vehicle Fleet Management System</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="button_signin">Next</string>
+    <string name="button_exit">Cancel</string>
+    <string name="error_password">Password must contain at least 8 characters.</string>
+    <string name="hi_mario_banay">Hi, Mario Banay</string>
+    <string name="todo">TODO</string>
 </resources>
