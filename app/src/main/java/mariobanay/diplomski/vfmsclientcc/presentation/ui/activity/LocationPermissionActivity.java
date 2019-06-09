@@ -23,7 +23,7 @@ import mariobanay.diplomski.vfmsclientcc.R;
 
 import static mariobanay.diplomski.vfmsclientcc.Constants.PERMISSIONS_REQUEST;
 
-public class LocationPermissionActivity extends AppCompatActivity {
+public class LocationPermissionActivity extends BaseActivity {
 
     public static Intent getCallingIntent(Context context) {
         Intent callingIntent = new Intent(context, LocationPermissionActivity.class);

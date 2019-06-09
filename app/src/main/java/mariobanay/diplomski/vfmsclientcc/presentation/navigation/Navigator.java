@@ -20,6 +20,8 @@ import android.content.Intent;
 
 import mariobanay.diplomski.vfmsclientcc.presentation.ui.activity.GpsPermissionActivity;
 import mariobanay.diplomski.vfmsclientcc.presentation.ui.activity.LocationPermissionActivity;
+import mariobanay.diplomski.vfmsclientcc.presentation.ui.activity.LoginActivity;
+import mariobanay.diplomski.vfmsclientcc.presentation.ui.activity.MainActivity;
 
 /**
  * Class used to navigate through the application.
@@ -52,6 +54,13 @@ public class Navigator {
     }
   }
 
+  public void navigateToLoginFragment(Context context) {
+    if (context != null) {
+      Intent intentToLaunch = LoginActivity.getCallingIntent(context);
+      context.startActivity(intentToLaunch);
+    }
+  }
+
   public static Navigator getInstance() {
 
 
@@ -61,6 +70,7 @@ public class Navigator {
 
     return sNavigator;
   }
+
 
 
 }

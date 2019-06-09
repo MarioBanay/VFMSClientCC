@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements View {
         );
         navigateToLocationPermissionFragment();
         navigateToGpsPermissionFragment();
+        navigateToLoginFragment();
+
     }
 
     private void navigateToGpsPermissionFragment() {
@@ -55,6 +57,11 @@ public class MainActivity extends AppCompatActivity implements View {
 
     void navigateToLocationPermissionFragment() {
         this.navigator.navigateToLocationPermission(this);
+    }
+
+
+    void navigateToLoginFragment() {
+        this.navigator.navigateToLoginFragment(this);
     }
 
     @Override
