@@ -1,25 +1,14 @@
 package mariobanay.diplomski.vfmsclientcc.presentation.ui.activity;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.Process;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
-import mariobanay.diplomski.vfmsclientcc.R;
 
 import static mariobanay.diplomski.vfmsclientcc.Constants.PERMISSIONS_REQUEST;
 
@@ -46,7 +35,6 @@ public class LocationPermissionActivity extends BaseActivity {
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     PERMISSIONS_REQUEST);
         }
-
     }
 
     @Override

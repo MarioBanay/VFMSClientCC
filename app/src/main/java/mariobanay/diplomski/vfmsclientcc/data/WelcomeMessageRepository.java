@@ -1,7 +1,6 @@
-package mariobanay.diplomski.vfmsclientcc.storage;
+package mariobanay.diplomski.vfmsclientcc.data;
 
 import android.util.Log;
-
 import mariobanay.diplomski.vfmsclientcc.domain.repository.MessageRepository;
 
 import static mariobanay.diplomski.vfmsclientcc.Constants.TAG;
@@ -17,7 +16,6 @@ public class WelcomeMessageRepository implements MessageRepository {
         Log.d(TAG + Thread.currentThread().getId(), WelcomeMessageRepository.class.getSimpleName() + " ->" + " Entered getWelcomeMessage()");
 
         String msg = "Welcome, friend!"; // let's be friendly
-
 
         // let's simulate some network/database lag
         try {

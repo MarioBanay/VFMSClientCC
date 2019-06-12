@@ -3,7 +3,6 @@ package mariobanay.diplomski.vfmsclientcc.threading;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-
 import mariobanay.diplomski.vfmsclientcc.domain.executor.MainThread;
 
 import static mariobanay.diplomski.vfmsclientcc.Constants.TAG;

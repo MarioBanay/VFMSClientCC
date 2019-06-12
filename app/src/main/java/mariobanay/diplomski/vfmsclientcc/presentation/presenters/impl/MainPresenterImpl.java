@@ -1,7 +1,6 @@
 package mariobanay.diplomski.vfmsclientcc.presentation.presenters.impl;
 
 import android.util.Log;
-
 import mariobanay.diplomski.vfmsclientcc.domain.executor.Executor;
 import mariobanay.diplomski.vfmsclientcc.domain.executor.MainThread;
 import mariobanay.diplomski.vfmsclientcc.domain.interactors.WelcomingInteractor;
@@ -36,7 +35,6 @@ public class MainPresenterImpl extends AbstractPresenter implements MainPresente
 
     @Override
     public void resume() {
-
         Log.d(TAG + Thread.currentThread().getId(), MainPresenterImpl.class.getSimpleName() + " ->" + " Entered resume()");
 
         mView.showProgress();

@@ -17,11 +17,9 @@ package mariobanay.diplomski.vfmsclientcc.presentation.navigation;
 
 import android.content.Context;
 import android.content.Intent;
-
 import mariobanay.diplomski.vfmsclientcc.presentation.ui.activity.GpsPermissionActivity;
 import mariobanay.diplomski.vfmsclientcc.presentation.ui.activity.LocationPermissionActivity;
 import mariobanay.diplomski.vfmsclientcc.presentation.ui.activity.LoginActivity;
-import mariobanay.diplomski.vfmsclientcc.presentation.ui.activity.MainActivity;
 
 /**
  * Class used to navigate through the application.
@@ -61,9 +59,8 @@ public class Navigator {
     }
   }
 
+
   public static Navigator getInstance() {
-
-
     if (sNavigator == null) {
       sNavigator = new Navigator();
     }

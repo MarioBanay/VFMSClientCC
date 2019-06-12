@@ -1,8 +1,6 @@
 package mariobanay.diplomski.vfmsclientcc.presentation.presenters.base;
 
-
 import android.util.Log;
-
 import mariobanay.diplomski.vfmsclientcc.domain.executor.Executor;
 import mariobanay.diplomski.vfmsclientcc.domain.executor.MainThread;
 
